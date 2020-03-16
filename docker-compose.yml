@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  icecast:
+    image: infiniteproject/icecast
+    ports:
+      - "8000:8000"
+    environment:
+      ICECAST_ADMIN_USERNAME: username
+      ICECAST_ADMIN_PASSWORD: password
+      ICECAST_SOURCE_PASSWORD: hackme
+      ICECAST_HOSTNAME: db3240f5.ngrok.io
+  mopidy:
+    image: pezholio/mopidy
+    ports:
+      - "6600:6600"
+      - "6680:6680"
+    volumes:
+      - ./mopidy.conf:/config/mopidy.conf

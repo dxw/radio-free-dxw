@@ -1,0 +1,19 @@
+[spotify]
+username = $SPOTIFY_USERNAME
+password = $SPOTIFY_PASSWORD
+client_id = $SPOTIFY_CLIENT_ID
+client_secret = $SPOTIFY_CLIENT_SECRET
+timeout=60
+allow_playlists=true
+[audio]
+output = lamemp3enc ! shout2send async=false mount=mopidy ip=icecast port=8000 password=$ICECAST_SOURCE_PASSWORD
+[http]
+enabled = true
+hostname=0.0.0.0
+port = 6680
+zeroconf = Mopidy HTTP server on $hostname
+allowed_origins = *
+csrf_protection = true
+default_app = iris
+[youtube]
+enabled = false
